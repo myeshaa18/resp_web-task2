@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>WATCH.IT</title>
+   
+    </head>
+<body>
+   
+ <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Teko:wght@300..700&display=swap');
+
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.teko-regular {
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+/*Desktop wireframe*/
+{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  background-color: #ffffff;
+  color: #070410;
+}
+
+img {
+  object-fit: cover;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+button {
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  background-color: #ffffff;
+  color: #070410;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+}
+
+button:hover {
+  background-color: #070410;
+  color: white;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/*nav bar*/
+.navigation {
+  padding: 16px;  /* Small spacing */
+  grid-row: 1/2;
+  background-color: #070410;
+  color: white;
+  display: flex; 
+  flex-direction: row;
+  align-items: baseline;
+  gap: 48px;  /* Large spacing for Desktop */
+  box-shadow: 0 10px 0px 0px #4DCCBD;
+}
+
+#logo {
+  font-family: "Teko", sans-serif;
+  padding-left: 48px;  /* Large spacing for Desktop */
+  font-size: 3em;
+}
+
+.genres {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2.5;
+  justify-content: center;
+  gap: 48px;  /* Large spacing for Desktop */
+  position: relative;
+  top: -10%;
+}
+
+.genres div:hover {
+  color: #EEF36A;
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+#genre1 {
+  grid-column: 1/2;
+  padding-right: 16px;
+}
+
+#genre2 {
+  grid-column: 2/3;
+  padding-right: 16px;
+}
+
+#genre3 {
+  grid-column: 3/4;
+  padding-right: 16px;
+}
+
+#genre3 {
+  grid-column: 4/5;
+  padding-right: 16px;
+}
+
+#search {
+  flex-grow: 0.4;
+  padding: 5px 16px 5px 16px;
+  background-color: #4DCCBD;
+  color: #070140;
+}
+#search:hover {
+  background-color: #EEF36A;
+  color: #070410;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.maincontent {
+  display: grid;
+  grid-template-rows: 450px 800px 450px 450px 450px 10px;
+  grid-template-columns: repeat(2,1fr);
+  row-gap: 48px;    /* Large spacing for Desktop */
+  column-gap: 48px; /* Large spacing for Desktop */
+  padding-inline: 48px; /* Large spacing for Desktop */
+  margin-top: 48px;    /* Large spacing for Desktop */
+  grid-row: 2/4;
+  max-width: 900px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*movie box containers*/
+.mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+  font-size: 1.5em;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  height: 450px;
+}
+.mov1, .mov4 {
+  background-color: #4DCCBD;
+  box-shadow: 16px 16px #231651;
+}
+.mov2, .mov5 {
+  background-color: #4DCCBD;
+  box-shadow: 16px 16px #231651;
+}
+.mov3, .mov6 {
+  background-color: #4DCCBD;
+  box-shadow: 16px 16px #231651; 
+}
+
+.mov1, .mov4, .mov5, .mov6 {
+  grid-column: 1/3;
+}
+
+.info1, .info2, .info3, .info4, .info5, .info6 {
+  grid-area: info;
+  text-align: left;
+  padding-inline: 16px;
+  align-self:first baseline;
+}
+
+.info1, .info4, .info5, .info6 {
+  margin-top: 16px;
+}
+
+#button1, #button2, #button3, #button4, #button5, #button6 {
+  grid-area: button;
+  background-color: #070410;
+  color: white;
+}
+
+#button2, #button3, #button4, #button5, #button6 {
+  margin: 16px;
+}
+#button1, #button4 {
+  background-color: #231651;
+  color: #FFFFFF;
+}
+
+#button2, #button5 {
+  background-color: #231651;
+  color: #FFFFFF;
+}
+
+#button3, #button6 {
+  background-color: #231651;
+  color: #FFFFFF;
+}
+#button1:hover, #button2:hover, #button3:hover, #button4:hover, #button5:hover, #button6:hover {
+  background-color: #EEF36A;
+  color: #070410;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+
+.img1, .img2, .img3, .img4, .img5, .img6 {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.img1 img:hover, .img2 img:hover, .img3 img:hover, .img4 img:hover, .img5 img:hover, .img6 img:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+/*TO ADD SPACES BETWEEN THE BOXES*/
+.mov1 {
+  grid-template-rows: 1fr 16px 1fr;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-areas:
+  "image image image"
+  ". . button"
+  "info info button";
+}
+
+#button1 {
+  margin-right: 16px;
+  object-fit: cover;
+  padding: .75em;
+  width: 75%;
+  justify-self: right;
+}
+
+.info1 {
+  width: 100%;
+}
+
+.img1 img {
+  height: 220px;
+}
+
+.mov2, .mov3 {
+  display: grid; 
+  grid-template-rows: 200px 200px 250px 150px;
+  grid-template-columns: none;
+  grid-template-areas: 
+  "image"
+  "image"
+  "info"
+  "button";
+  height: 800px;
+}
+
+.info2, .info3 {
+  padding-top: 16px;
+}
+
+.img2 img, .img3 img {
+  height: 400px;
+}
+
+.mov4, .mov5, .mov6 {
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  grid-template-areas: 
+  "image image info info"
+  "image image button button";
+}
+
+.img4 img, .img5 img, .img6 img {
+  height: 450px;
+}
+
+
+/*TAB WIREFRAME*/
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    grid-template-rows: repeat(3,950px);
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 32px;
+    column-gap: 32px;
+    padding-inline: 32px;
+    margin-top: 32px;
+    max-width: 900px;
+    padding-bottom: 32px;
+  }
+  
+  .mov1, .mov2 {
+    grid-row: 1/2;
+  }
+
+  .mov3, .mov4 {
+    grid-row: 2/3;
+  }
+
+  .mov5, .mov6 {
+    grid-row: 3/4;
+  }
+
+  .mov1, .mov3, .mov5 {
+    grid-column: 1/2;
+  }
+
+  .mov2, .mov4, .mov6 {
+    grid-column: 2/3;
+  }
+
+  .mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+    display: grid; 
+    grid-template-rows: 200px 200px 250px 150px 150px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 950px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
+    height: 400px;
+  }
+
+  /* IN ORDER TO DETECT THE LINE SKIP FOR THE WATCH NOW */
+  #button1, #button2, #button3, #button4, #button5, #button6 {
+    padding-inline: 16px;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    justify-self: center;
+    width: 95%;
+    height: 60%;
+    white-space: pre-line;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+
+}
+
+/*MOB WIREFRAME*/
+@media screen and (min-width: 360px) and (max-width: 720px) {
+
+  .navigation { box-shadow: 0 16px 0px 0px #4DCCBD; }
+
+  #genre1, #genre2, #genre3, #genre4 { display: none; }
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    padding-top: 16px;
+    grid-template-rows: repeat(6,800px);
+    grid-template-columns: auto;
+    row-gap: 16px;
+    column-gap: 0;
+    padding-inline: 0;
+    margin-top: 0;
+    max-width: 900px;
+    padding-bottom: 16px;
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+  }
+
+  .mov1 { grid-row: 1/2;}
+  .mov2 { grid-row: 2/3;}
+  .mov3 { grid-row: 3/4;}
+  .mov4 { grid-row: 4/5;}
+  .mov5 { grid-row: 5/6;}
+
+  .mov1, .mov2, .mov3, .mov4, .mov5, .mov6 {
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+    grid-column: 1/2;
+    display: grid; 
+    grid-template-rows: 200px 200px 200px 100px 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 800px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .img1 img, .img2 img, .img3 img, .img4 img, .img5 img, .img6 img {
+    height: 400px;
+  }
+  #button1, #button2, #button3, #button4, #button5, #button6 {
+    padding-inline: 0;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    width: 95%;
+    height: 50%;
+    white-space: none;
+    justify-self: center;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+}
+</style>
+
+        <div class="navigation">
+            <div id="logo">Watch.It</div>
+
+            <div class="genres">
+                <div id="genre1">ACTION</div>
+                <div id="genre2">COMEDY</div>
+                <div id="genre3"><b>ROMANCE</b></div>
+                <div id="genre4"><b>DRAMA</b></div>
+            </div>
+
+            <button type="button" id="search">SEARCH</button>
+        </div>
+
+        <div class="maincontent">
+
+            <div class="mov1">
+                <div class="img1"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\barbie (1).jpg"></div>
+                <p class="info6">
+                    Step into the dazzling world of Barbie as she embarks on an unexpected journey from her perfect doll life to 
+                    the real world. Filled with humor, heart, and empowering messages, this vibrant adventure redefines 
+                    what it means to dream big!
+                </p>
+    
+                <button type="button" id="button1">WATCH 
+                    NOW</button>
+            </div>
+            
+
+
+            <div class="mov2">
+                <div class="img2"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\hook.jpg"></div>
+                <p class="info2">
+                    Rediscover Neverland in this thrilling twist on Peter Pan! Robin Williams stars as a grown-up Peter, 
+                    who must rediscover his inner child to rescue his kids from the clutches of Captain Hook. Adventure,
+                    magic, and nostalgia blend in this timeless family classic.
+                </p>
+    
+                <button type="button" id="button2">WATCH 
+                    NOW</button>
+            </div>
+
+
+            <div class="mov3">
+                <div class="img3"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\hidden-figures.jpg"></div>
+                <p class="info3">
+                    Three unsung heroes of NASA's space race take the spotlight in this inspiring true story. 
+                    Battling discrimination and defying the odds, these brilliant African-American women prove that 
+                    intelligence, perseverance, and unity can change history and break barriers.
+                </p>
+    
+                <button type="button" id="button3">WATCH 
+                    NOW</button>
+            </div>
+
+
+            <div class="mov4">
+                <div class="img4"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\la-la-land.jpg"></div>
+                <p class="info4">
+                    Love, dreams, and the magic of LA take center stage in this musical masterpiece. Watch as two starry-eyed 
+                    artists navigate passion and ambition in a world where every moment feels like a cinematic spectacle!
+                </p>
+    
+                <button type="button" id="button4">WATCH 
+                    NOW</button>
+            </div>
+
+
+            <div class="mov5">
+                <div class="img5"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\palm-springs.jpg"></div>
+                <p class="info5">
+                    A never-ending wedding day turns into an unforgettable time-loop romance! Stuck in the same day, two strangers 
+                    find love, chaos, and meaning in the most unexpected ways.
+                </p>
+    
+                <button type="button" id="button5">WATCH 
+                    NOW</button>
+            </div>
+
+            <div class="mov6">
+                <div class="img6"><img src="C:\Users\kashi\OneDrive\Desktop\task2 resp web\who-framed-roger-rabbit.jpg"></div>
+                <p class="info1">
+                  In a world where cartoons and humans coexist, a detective must 
+                  solve a zany,high-stakes mystery. 
+                  Packed with wild humor, groundbreaking 
+                  animation,and noir twists, this unique  
+                  film will pull you into
+                  a world where anything is possible!
+                </p>
+                <button type="button" id="button6">WATCH 
+                    NOW</button>
+            </div>
+
+        </div>
+</body>
+</html>
